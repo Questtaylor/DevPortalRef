@@ -1,0 +1,13 @@
+<div  *ngIf="isLoading" class="loading-indicator__container" [ngClass]="{'back-layer': coverage}">
+  <div class="loading-indicator__bar-container">
+    <div class="loading-indicator__bar"></div>
+    <div class="loading-indicator__bar"></div>
+    <div class="loading-indicator__bar"></div>
+    <div class="loading-indicator__bar"></div>                  
+  </div>
+  <p class="loading-indicator__text"> {{label}} </p>
+</div>
+
+<ng-container *ngIf="!isLoading">
+  <ng-content></ng-content>
+</ng-container>

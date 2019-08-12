@@ -1,0 +1,22 @@
+<div class="snackbar"
+     [ngClass]="{
+     'show': show,
+     'snackbar--error': type === 'error',
+     'snackbar--information': type === 'info',
+     'snackbar--success': type === 'success',
+     'snackbar--warning': type === 'warning'
+     }">
+  <div class="snackbar-body">
+    <i class="snackbar-body__icon abb_icon_24"
+       [ngClass]="{
+     'ui_error_circle1': type === 'error',
+     'ui_information_circle1': type === 'info',
+     'ui_check_mark_circle1': type === 'success',
+     'ui_warning_circle1': type === 'warning'
+     }"
+    ></i>
+    <span class="snackbar-body__label">{{text}}</span>
+    <i class="snackbar-body__close abb_icon_16 ui_close" (click)="onCloseSnackBar()"></i>
+
+  </div>
+</div>

@@ -1,0 +1,16 @@
+.error {
+  margin-top: .5rem;
+  font-weight: 500;
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .abb_icon_16 {
+      margin-right: .5rem;
+    }
+  }
+}
+
+.ui_error_circle1 {
+  color: red !important;
+}

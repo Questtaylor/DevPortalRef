@@ -1,0 +1,33 @@
+<div class="datepicker-range-container">
+
+    <input #dateInput
+           class="form-control datepicker-range-container__input form-control"
+           placeholder="select range"
+           [disabled]="disabled"
+           [(ngModel)]="selectedRange"
+    >
+    <button type="button" class="btn btn-form btn-default" (click)="setFocus()">
+      <span class="abb_icon_16 ui_calendar"></span>
+    </button>
+
+  <div class="datepicker-range-container__calendar">
+    <div style="display: inline-block;background: #fff">
+      <ngb-datepicker #dp (select)="onDateSelection($event)"
+                      [displayMonths]="1"
+                      [dayTemplate]="t"
+                      [maxDate]="model">
+      </ngb-datepicker>
+    </div>
+  </div>
+</div>
+
+<ng-template #t let-date="date" let-focused="focused" let-disabled="disabled">
+  <span class="custom-day"
+        [class.focused]="focused"
+        [class.range]="isRange(date)"
+        [class.faded]="isHovered(date) || isInside(date)"
+        (mouseenter)="hoveredDate = date"
+        (mouseleave)="hoveredDate = null">
+    {{ date.day }}
+  </span>
+</ng-template>

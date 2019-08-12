@@ -1,0 +1,32 @@
+<div class="timepicker"
+     [ngClass]="{
+         'timepicker--invalid':!control.valid && !(control.disabled || disabled) && control.touched,
+         'timepicker--valid':control.valid && !(control.disabled || disabled) && control.touched,
+         'timepicker--disabled':(control.disabled || disabled)
+         }"
+>
+  <input [(ngModel)]="time_parsed" readonly="readonly" [disabled]="(control.disabled || disabled)"
+         class="timepicker__input" type="text">
+  <span *ngIf="control.valid && !(control.disabled || disabled) && control.touched" class="timepicker__mark abb_icon_16 ui_check_mark"
+        [ngClass]="{'timepicker__mark--movable': (control.value && !(control.disabled || disabled) && control.touched)}"
+  ></span>
+  <span *ngIf="control.value && !(control.disabled || disabled)  && control.touched" class="timepicker__clear abb_icon_16 ui_close" (click)="clearField()"></span>
+
+  <button type="button" class="btn btn-default timepicker__button" (click)="open($event)">
+    <span class="abb_icon_16 ui_time"></span>
+  </button>
+
+  <div class="timepicker__selector"
+       [ngClass]="{'timepicker__selector--opened': opened}"
+  >
+    <div>
+      <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+      <div class="timepicker__commands">
+        <button class="btn btn-default" (click)="close($event)" id="timepicker-btn">Close</button>
+        <button class="btn btn-primary" (click)="set($event)" id="timepicker-btn">Set</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,7 @@
+<div class="snackbar">
+  <div *ngFor="let notification of notifications | async">
+    <abb-controls-snack-bar-item [notification]="notification"
+                                 (snackBarItemClosed)="onSnackBarItemClosed($event)">
+    </abb-controls-snack-bar-item>
+  </div>
+</div>

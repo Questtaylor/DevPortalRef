@@ -1,0 +1,11 @@
+<abb-controls-search [searchBarPlaceholder]="'Search for instances'"
+                     (isSearchActiveChanged)="onIsSearchActiveChanged($event)"
+                     [searchItemTemplate]="searchItemTemplate">
+</abb-controls-search>
+
+<abb-controls-navigator-tree #tree
+                             (selectedItemChanged)="onTreeSelectionChanged($event)"
+                             [leafNodeTemplate]="leafNodeTemplate"
+                             [branchNodeTemplate]="branchNodeTemplate"
+                             [ngClass]="{'collapse': isSearchActive}">
+</abb-controls-navigator-tree>

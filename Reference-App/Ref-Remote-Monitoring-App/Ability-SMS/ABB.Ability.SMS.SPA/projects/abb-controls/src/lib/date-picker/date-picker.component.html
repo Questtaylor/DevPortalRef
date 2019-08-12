@@ -1,0 +1,27 @@
+<div *ngIf="control" class="datepicker"
+     [ngClass]="{
+         'datepicker--invalid':!control.valid && !(control.disabled || disabled) && control.touched,
+         'datepicker--valid':control.valid && !(control.disabled || disabled) && control.touched,
+         'datepicker--disabled': (control.disabled || disabled)
+         }"
+>
+  <input readonly="readonly"
+         class="datepicker__input"
+         placeholder="yyyy-mm-dd"
+         [(ngModel)]="dateModel"
+         (ngModelChange)="updateChanges(dateModel)"
+         [disabled]="(control.disabled || disabled)"
+         ngbDatepicker
+         #d="ngbDatepicker"
+         [maxDate]="model">
+  <span *ngIf="control.valid && !(control.disabled || disabled)  && control.touched"
+        class="datepicker__mark abb_icon_16 ui_check_mark"
+        [ngClass]="{'datepicker__mark--movable': (control.value && !(control.disabled || disabled)  && control.touched)}"
+  ></span>
+  <span *ngIf="control.value && !(control.disabled || disabled)" class="datepicker__clear abb_icon_16 ui_close"
+        (click)="clearField()"></span>
+  <button type="button" class="btn btn-default datepicker__button" (click)="d.toggle()">
+    <span class="abb_icon_16 ui_calendar"></span>
+  </button>
+
+</div>

@@ -1,0 +1,8 @@
+<div class="error" *ngIf="getErrors().length>0">
+  <ul class="error__items">
+    <li *ngFor="let key of getErrors()" class="error__item">
+      <span class="abb_icon_16 ui_error_circle1"></span>
+      <span>{{getTranslation(key)}}</span>
+    </li>
+  </ul>
+</div>

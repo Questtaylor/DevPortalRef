@@ -1,0 +1,15 @@
+.snackbar {
+  position: fixed;
+  z-index: 10000;
+  left: 50%;
+  top: 5.3rem;
+  transform: translate(-50%);
+
+  > div {
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

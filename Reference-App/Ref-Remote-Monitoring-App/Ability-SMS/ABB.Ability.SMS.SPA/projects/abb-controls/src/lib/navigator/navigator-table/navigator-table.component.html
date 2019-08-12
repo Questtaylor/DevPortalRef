@@ -1,0 +1,20 @@
+<abb-controls-search [searchBarPlaceholder]="'Search for instances'"
+                     (isSearchActiveChanged)="onIsSearchActiveChanged($event)"
+                     [searchItemTemplate]="searchItem">
+</abb-controls-search>
+
+
+<table class="table">
+    <thead>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<abb-controls-data-loader *ngIf="isSearchActive"></abb-controls-data-loader>
+
+<ng-template #searchItem let-item="item">
+    <div class="search-result" [ngClass]="{'selected': item.isSelected}"
+            (click)="onSearchResultItemClicked(item, $event)">
+        {{item.label}}
+    </div>
+</ng-template>

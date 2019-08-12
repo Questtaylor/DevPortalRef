@@ -1,0 +1,29 @@
+$active-border-color: #2E92FA; //$abb-blue-4
+$disabled-color: #80A0A6; //$abb-asphalt-4
+
+.abb-tabs {
+  &__tabs {
+    border-top: 1px solid lightgray;
+  }
+  &__tab {
+    display: inline-block;
+    padding: 1rem;
+
+    &:not(.abb-tabs__tab-disabled) {
+      &:hover {
+        cursor: pointer;
+        border-top: 3px solid rgba(46, 146, 250, .85);
+      }
+    }
+
+    &-active {
+      border-top: 3px solid $active-border-color;
+      font-weight: 500;
+    }
+
+    &-disabled {
+      color: $disabled-color;
+    }
+  }
+}
+

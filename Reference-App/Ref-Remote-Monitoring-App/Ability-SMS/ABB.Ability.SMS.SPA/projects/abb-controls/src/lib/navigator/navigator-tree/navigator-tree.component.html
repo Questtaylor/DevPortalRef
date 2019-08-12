@@ -1,0 +1,8 @@
+<abb-controls-data-loader *ngIf="!initialLoadCompleted"></abb-controls-data-loader>
+
+<div class="node-container">
+  <div *ngFor="let node of navigatorTreeService.data$ | async">
+    <ng-content
+      *ngTemplateOutlet="node.expandable ? branchNodeTemplate : leafNodeTemplate; context: {$implicit: node, node: node}"></ng-content>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div *ngIf="control" class="input--container"
+     [ngClass]="{
+         'input--container--invalid':!control.valid && !(control.disabled || disabled) && control.touched,
+         'input--container--valid':control.valid && !(control.disabled || disabled) && control.touched,
+         'input--container--disabled': (control.disabled || disabled)
+         }">
+
+
+  <input [type]="type"
+         [placeholder]="placeholder"
+         class="input--container__input"
+         [(ngModel)]="model"
+         (ngModelChange)="updateChanges()"
+         (focus)="onTouched()"
+         [disabled]="(control.disabled)">
+  <span *ngIf="control.valid && !(control.disabled || disabled)  && control.touched"
+        class="input--container__mark abb_icon_16 ui_check_mark"
+        [ngClass]="{'input--container__mark--movable': (control.value && !(control.disabled || disabled)  && control.touched)}"
+  ></span>
+  <span *ngIf="control.value && !(control.disabled || disabled)" class="input--container__clear abb_icon_16 ui_close"
+        (click)="clearField()"></span>
+
+
+</div>

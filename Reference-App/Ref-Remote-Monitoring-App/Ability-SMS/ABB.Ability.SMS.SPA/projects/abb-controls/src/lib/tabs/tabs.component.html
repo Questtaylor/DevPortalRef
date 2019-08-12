@@ -1,0 +1,11 @@
+<div class="abb-tabs__tabs-container">
+  <ul class="abb-tabs__tabs">
+    <li class="abb-tabs__tab"
+        *ngFor="let tab of tabs;"
+        (click)="onTabHeaderClick(tab)"
+        [ngClass]="{'abb-tabs__tab-active':activeTab === tab, 'abb-tabs__tab-disabled': tab.isEnabled === false}">
+      {{tab.header}}
+    </li>
+  </ul>
+</div>
+<div *ngTemplateOutlet="!!activeTab && activeTab.isEnabled !== false ? activeTab.template : null"></div>

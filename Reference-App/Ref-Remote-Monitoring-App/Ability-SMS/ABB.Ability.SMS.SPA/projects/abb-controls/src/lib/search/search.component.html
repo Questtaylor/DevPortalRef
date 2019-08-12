@@ -1,0 +1,11 @@
+<abb-controls-search-bar [placeholder]="searchBarPlaceholder"
+                         (searchTextChanged)="onSearchTextChanged($event)">
+</abb-controls-search-bar>
+
+<div *ngIf="isSearchActive" class="search-results">
+  <abb-controls-data-loader *ngIf="isSearchLoading"></abb-controls-data-loader>
+
+  <div *ngFor="let item of searchResults">
+    <ng-content *ngTemplateOutlet="searchItemTemplate; context: {$implicit: item, item: item}"></ng-content>
+  </div>
+</div>

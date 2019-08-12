@@ -1,0 +1,21 @@
+<div class="search-box">
+  <input #searchInput
+         type="text"
+         class="search-bar-discrete"
+         maxlength="150"
+         [placeholder]="placeholder"
+         [ngClass]="{'active': searchTextChanged}"
+         (change)="onTextChange($event.target.value)"
+         (keyup)="onKeyUp($event.target.value, $event)"/>
+
+  <i class="search-icon abb_icon_16 ui_search"
+     [ngClass]="{'collapse' : !!searchInput.value}"
+     (click)="onTextChange(searchInput.value)">
+  </i>
+
+  <i class="search-icon abb_icon_16 ui_close"
+     [ngClass]="{'collapse' : !searchInput.value}"
+     (click)="onClearButtonClicked(searchInput)">
+  </i>
+
+</div>

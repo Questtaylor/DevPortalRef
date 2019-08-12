@@ -1,0 +1,140 @@
+:host {
+  padding: 0;
+}
+
+.input-group {
+  height: 100%;
+}
+
+.timepicker {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: solid 1px rgba(200, 200, 200, 0.8);
+  color: #464646;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 0;
+  padding: 0 12px 1px 12px;
+  height: 30px;
+  box-shadow: none;
+  display: block;
+  width: 100%;
+  line-height: 1.5;
+  background-color: #fff;
+  background-clip: padding-box;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    .timepicker__mark--movable {
+      transition: right .2s ease-in-out;
+      right: 65px;
+    }
+
+    .timepicker__clear {
+      transition: opacity .2s ease-in-out;
+      opacity: 1;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &--invalid {
+    border: 1px solid red;
+    input {
+      background-color: #FEECEE;
+    }
+  }
+
+  &--valid {
+    border: 1px solid green;
+    input {
+      background-color: #F5FCF9;
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+  }
+
+  &__mark {
+    position: absolute;
+    right: 45px;
+    top: 5px;
+    height: 100%;
+    color: green;
+    transition: right .2s ease-in-out;
+  }
+
+  &__clear {
+    position: absolute;
+    right: 45px;
+    top: 5px;
+    height: 100%;
+    color: red;
+    opacity: 0;
+  }
+
+  &__input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-left: 1.2rem;
+    height: 100%;
+    width: calc(100% - 40px);
+    border: 0;
+    outline: 0;
+  }
+  &__button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+  }
+
+  &__commands {
+    display: flex;
+    flex-direction: row;
+
+    button:nth-child(1) {
+      margin-right: 3rem;
+    }
+
+  }
+
+  &__selector {
+    position: absolute;
+    bottom: -15.2rem;
+    background: white;
+    z-index: 999;
+    left: 0;
+    width: 100%;
+    //padding: 10px 0;
+    height: 0;
+    overflow: hidden;
+
+    &--opened {
+      transition: all .2s ease-in-out;
+      min-height: 150px;
+      border-left: 1px solid #B4B4B4;
+      border-right: 1px solid #B4B4B4;
+      border-bottom: 1px solid #B4B4B4;
+    }
+
+    > div {
+      background: #fff;
+      padding: 1px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+  }
+
+}
+
+#timepicker-btn {
+  width: 6rem;
+  margin: .5rem !important;
+}

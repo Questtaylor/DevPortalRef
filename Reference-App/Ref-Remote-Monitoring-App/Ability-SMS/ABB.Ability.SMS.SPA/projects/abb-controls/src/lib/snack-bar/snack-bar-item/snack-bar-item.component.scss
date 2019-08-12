@@ -1,0 +1,80 @@
+$information-color: #2E92FA;
+$success-color: #329A5D;
+$error-color: #F03040;
+$warning-color: #FF7300;
+
+.snackbar {
+  visibility: hidden;
+  min-width: 52rem;
+  min-height: 4.8rem;
+  padding: 1rem 0;
+  color: #fff;
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.54);
+  animation: fadein 0.8s, fadeout 0.8s 3500s;
+
+  &--error {
+    background-color: $error-color;
+  }
+
+  &--information {
+    background-color: $information-color;
+  }
+
+  &--success {
+    background-color: $success-color;
+  }
+
+  &--warning {
+    background-color: $warning-color;
+  }
+
+}
+
+.snackbar-body {
+  height: 100%;
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  grid-column-gap: 1.6rem;
+  align-items: center;
+  justify-items: center;
+  font-size: 1.6rem;
+
+  &__close {
+    padding: 0 1.6rem;
+    color: #fff;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__icon {
+    padding: 0 1.2rem;
+    color: white;
+  }
+}
+
+.show {
+  visibility: visible !important;
+}
+
+@keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 5.3rem;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    top: 5.3rem;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
